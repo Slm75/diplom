@@ -1,0 +1,28 @@
+<% provide(:title, 'Sign up') %>
+<h1>Регистрация</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <%= f.label "Логин" %>
+        <%= f.text_field :name %>
+
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+
+        <%= f.label "Пароль" %>
+        <%= f.password_field :password %>
+
+        <%= f.label "Подтверждение пароля", "" %>
+        <%= f.password_field :password_confirmation %>
+
+        <%= f.label "Администратор?", ""%>
+        <%= f.check_box :admin%>
+
+        <%= f.label "Тип учетной записи", "" %>
+        <%= f.select :role, [["Админ",0],["Пользователь",1],[],[]]%>
+        <%= f.submit "Создать", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
